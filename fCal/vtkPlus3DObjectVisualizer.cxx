@@ -177,7 +177,7 @@ PlusStatus vtkPlus3DObjectVisualizer::Update()
       displayableObject->GetActor()->SetUserTransform(objectModelToWorldTransform);
     }
     // If invalid then make it partially transparent and leave in place
-    else
+    else if(!objectCoordinateFrameToWorldTransformMatrix->IsIdentity())
     {
       if (fabs(displayableObject->GetOpacity()) > 0.001 && fabs(displayableObject->GetOpacity() - 0.3) > 0.001)
       {
